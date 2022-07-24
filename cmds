@@ -1,8 +1,12 @@
 #both correct
-gabriel@smalllaptop:~/testC++/DNA2INT$ ./DNA2INT_array |md5sum
-976ed3fa3b1b3fa5dabd14228ae6ecfd  -
-gabriel@smalllaptop:~/testC++/DNA2INT$ ./DNA2INT_bitshift |md5sum
-976ed3fa3b1b3fa5dabd14228ae6ecfd  -
+./DNA2INT_array |md5sum
+#976ed3fa3b1b3fa5dabd14228ae6ecfd  -
+./DNA2INT_bitshift |md5sum
+#976ed3fa3b1b3fa5dabd14228ae6ecfd  -
 
-for i in `seq 100`; do time ./DNA2INT_bitshift  > /dev/null ; done 2> bitshift.time
-for i in `seq 100`; do time ./DNA2INT_array  > /dev/null ;    done 2> array.time
+for i in `seq 10000`; do time ./DNA2INT_bitshift  > /dev/null ; done 2> bitshift.time &
+for i in `seq 10000`; do time ./DNA2INT_array  > /dev/null ;    done 2> array.time &
+
+
+grep user bitshift.time  |cut -f 2  |sed "s/0m//g" |sed "s/s//g" > bitshift.time_parsed
+grep user array.time  |cut -f 2  |sed "s/0m//g" |sed "s/s//g" > array.time_parsed

@@ -13,15 +13,10 @@
 using namespace std;
 
 int main (int argc, char *argv[]) {
-    char dna2int ['T'+1];
-    dna2int['A']=0;
-    dna2int['C']=1;
-    dna2int['G']=2;
-    dna2int['T']=3;
-    
-    for(int i=0;i<1000000;i++){
+
+    for(int i=0;i<10000000;i++){
 	char bp="ACGT"[ rand()%4 ];
-	int idx = dna2int[bp];
+	int idx = (0b11 & (bp >> 2 ^ bp >> 1) );
 	
 	cout<<bp<<"\t"<<idx<<endl;
     }
