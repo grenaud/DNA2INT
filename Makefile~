@@ -1,0 +1,19 @@
+
+CXX      = g++   
+
+CXXFLAGS = -Wall -lm -O3 -lz  -c
+LDFLAGS  = -lz
+
+
+all: DNA2INT 
+
+DNA2INT.o:	DNA2INT.cpp
+	${CXX} ${CXXFLAGS} DNA2INT.cpp
+
+
+DNA2INT:	DNA2INT.o  
+	${CXX} -o $@ $^ $(LDLIBS) $(LDFLAGS)
+
+clean :
+	rm -f DNA2INT.o DNA2INT
+

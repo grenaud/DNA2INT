@@ -1,0 +1,8 @@
+#both correct
+gabriel@smalllaptop:~/testC++/DNA2INT$ ./DNA2INT_array |md5sum
+976ed3fa3b1b3fa5dabd14228ae6ecfd  -
+gabriel@smalllaptop:~/testC++/DNA2INT$ ./DNA2INT_bitshift |md5sum
+976ed3fa3b1b3fa5dabd14228ae6ecfd  -
+
+for i in `seq 100`; do time ./DNA2INT_bitshift  > /dev/null ; done 2> bitshift.time
+for i in `seq 100`; do time ./DNA2INT_array  > /dev/null ;    done 2> array.time
