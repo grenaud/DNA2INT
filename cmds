@@ -1,12 +1,20 @@
-#both correct
+#all correct
 ./DNA2INT_array |md5sum
-#976ed3fa3b1b3fa5dabd14228ae6ecfd  -
+#6e9da6e17fb64b5eb8470cfb46e9f202  -
 ./DNA2INT_bitshift |md5sum
-#976ed3fa3b1b3fa5dabd14228ae6ecfd  -
+#6e9da6e17fb64b5eb8470cfb46e9f202  -
+./DNA2INT_if |md5sum
+#6e9da6e17fb64b5eb8470cfb46e9f202  -
+./DNA2INT_map |md5sum
+#6e9da6e17fb64b5eb8470cfb46e9f202  -
 
 for i in `seq 10000`; do time ./DNA2INT_bitshift  > /dev/null ; done 2> bitshift.time &
-for i in `seq 10000`; do time ./DNA2INT_array  > /dev/null ;    done 2> array.time &
+for i in `seq 10000`; do time ./DNA2INT_array     > /dev/null ; done 2> array.time &
+for i in `seq 10000`; do time ./DNA2INT_if        > /dev/null ; done 2> if.time &
+for i in `seq 10000`; do time ./DNA2INT_map       > /dev/null ; done 2> map.time &
 
 
 grep user bitshift.time  |cut -f 2  |sed "s/0m//g" |sed "s/s//g" > bitshift.time_parsed
 grep user array.time  |cut -f 2  |sed "s/0m//g" |sed "s/s//g" > array.time_parsed
+grep user if.time  |cut -f 2  |sed "s/0m//g" |sed "s/s//g" > if.time_parsed
+grep user map.time  |cut -f 2  |sed "s/0m//g" |sed "s/s//g" > map.time_parsed
