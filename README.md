@@ -78,7 +78,6 @@ I coded 4 programs to do this:
 
 The last one simply stores the indices in an array:
 
-`
     char dna2int ['T'+1];
     dna2int['A']=0;
     dna2int['C']=1;
@@ -113,6 +112,6 @@ Here are the average runtimes:
 
 'If' statements and a map are the slowest, they take about 5.3s on average. Bit operators were indeed much faster at 4.7s. However, a simple array was about as fast as bitwise operators with an average of 4.69s. However, the distribution of runtimes between an array and bitoperators look quite similar:
 
-!(https://raw.githubusercontent.com/grenaud/DNA2INT/main/array_vs_bit.png)
+![arrayvsbit](https://raw.githubusercontent.com/grenaud/DNA2INT/main/array_vs_bit.png)
 
 For now, arrays are still the fastest. I did not test lower case characters. It would be interesting to find an even faster solution.
