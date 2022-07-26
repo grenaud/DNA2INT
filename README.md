@@ -114,4 +114,4 @@ Here are the average runtimes:
 
 ![arrayvsbit](https://raw.githubusercontent.com/grenaud/DNA2INT/main/array_vs_bit.png)
 
-For now, arrays are still the fastest. I did not test lower case characters. It would be interesting to find an even faster solution.
+For now, arrays are still the fastest. I did not test lower case characters. It would be interesting to find an even faster solution. Also, this is not a real life scenario where there could be a cache miss resulting in higher runtimes.
